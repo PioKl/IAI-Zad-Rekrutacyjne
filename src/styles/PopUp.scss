@@ -698,6 +698,8 @@ input[type=number]:focus {
         line-height: 1.9965vh;
         color: $textColor;
 
+        user-select: none;
+
         @media (orientation: landscape) {
             font-size: 1.1806vw;
             line-height: 1.3889vw;
