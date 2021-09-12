@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/IAI-Zad-Rekrutacyjne/static/css/main.ccf560ae.chunk.css",
+    "main.js": "/IAI-Zad-Rekrutacyjne/static/js/main.7fa637db.chunk.js",
+    "main.js.map": "/IAI-Zad-Rekrutacyjne/static/js/main.7fa637db.chunk.js.map",
+    "runtime-main.js": "/IAI-Zad-Rekrutacyjne/static/js/runtime-main.e84638f0.js",
+    "runtime-main.js.map": "/IAI-Zad-Rekrutacyjne/static/js/runtime-main.e84638f0.js.map",
+    "static/js/2.a0c1fa60.chunk.js": "/IAI-Zad-Rekrutacyjne/static/js/2.a0c1fa60.chunk.js",
+    "static/js/2.a0c1fa60.chunk.js.map": "/IAI-Zad-Rekrutacyjne/static/js/2.a0c1fa60.chunk.js.map",
+    "static/js/3.bfb3e804.chunk.js": "/IAI-Zad-Rekrutacyjne/static/js/3.bfb3e804.chunk.js",
+    "static/js/3.bfb3e804.chunk.js.map": "/IAI-Zad-Rekrutacyjne/static/js/3.bfb3e804.chunk.js.map",
+    "index.html": "/IAI-Zad-Rekrutacyjne/index.html",
+    "static/css/main.ccf560ae.chunk.css.map": "/IAI-Zad-Rekrutacyjne/static/css/main.ccf560ae.chunk.css.map",
+    "static/js/2.a0c1fa60.chunk.js.LICENSE.txt": "/IAI-Zad-Rekrutacyjne/static/js/2.a0c1fa60.chunk.js.LICENSE.txt",
+    "static/media/arrowIcon.b658a54b.svg": "/IAI-Zad-Rekrutacyjne/static/media/arrowIcon.b658a54b.svg",
+    "static/media/cartIcon.e4ffaad9.svg": "/IAI-Zad-Rekrutacyjne/static/media/cartIcon.e4ffaad9.svg",
+    "static/media/PopUp.scss": "/IAI-Zad-Rekrutacyjne/static/media/okIcon.81471e54.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e84638f0.js",
+    "static/js/2.a0c1fa60.chunk.js",
+    "static/css/main.ccf560ae.chunk.css",
+    "static/js/main.7fa637db.chunk.js"
+  ]
+}
