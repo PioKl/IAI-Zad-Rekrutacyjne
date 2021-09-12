@@ -1,2 +1,2 @@
-# Zadanie rekrutacyjne, wykonane za pomocą Reacta.
+Zadanie rekrutacyjne, wykonane za pomocą Reacta.
 
