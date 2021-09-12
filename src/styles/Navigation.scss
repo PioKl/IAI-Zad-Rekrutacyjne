@@ -1,0 +1,115 @@
+@import './App.scss';
+
+#nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2.65vh 5vh;
+
+    @media (orientation: landscape) {
+        padding: 2.084vw 9.375vw;
+    }
+}
+
+.shopCart {
+    display: inline-flex;
+    align-items: center;
+    padding: .881vh 0;
+
+    font-family: $fontArial;
+    font-weight: bold;
+    color: $textColor;
+
+    border: .1vh solid $borderColor;
+    border-radius: 5px;
+
+    @media (orientation: landscape) {
+        padding: .3472vw 0;
+
+        border-width: .07vw;
+    }
+
+
+    >* {
+        margin-right: 1.233vh;
+
+        @media (orientation: landscape) {
+            margin-right: .4861vw;
+        }
+    }
+
+    &__cartIcon {
+        width: 1.547vh;
+        height: 1.547vh;
+        margin-left: 1.761vh;
+
+        @media (orientation: landscape) {
+            width: 1.063vw;
+            height: 1.063vw;
+            margin-left: .695vw;
+        }
+
+    }
+
+    &__counter {
+        @include grid-center();
+
+        width: 3.2vh;
+        height: 3.2vh;
+        background-color: $blue;
+
+        font-weight: 400;
+        font-size: 1.3275vh;
+        line-height: 1.5265vh;
+        color: white;
+
+        border-radius: 50%;
+
+        @media (orientation: landscape) {
+            width: 1.8vw;
+            height: 1.8vw;
+
+            font-size: .9028vw;
+            line-height: 1.0417vw;
+        }
+    }
+
+    &__totalCost {
+        font-size: 1.6339vh;
+        line-height: 1.879vh;
+
+        @media (orientation: landscape) {
+            font-size: 1.112vw;
+            line-height: 1.25vw;
+        }
+    }
+
+    &__goFurtherButton {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        @include grid-center();
+        width: 2vh;
+        height: 100%;
+        margin-left: 1.233vh;
+
+        @media (orientation: landscape) {
+            width: 2.632vw;
+            margin-left: .4861vw;
+        }
+
+    }
+
+    &__goFurtherIcon {
+        width: 1.547vh;
+        height: 1.547vh;
+
+        @media (orientation: landscape) {
+            width: 1.063vw;
+            height: 1.063vw;
+        }
+
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}

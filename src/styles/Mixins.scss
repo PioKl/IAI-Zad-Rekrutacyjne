@@ -1,0 +1,89 @@
+/* MEDIA QUERIES */
+
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Flexbox Toolkit */
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
+}
+
+@mixin flex-center-vert {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-center-horiz {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-center-vert-row {
+    @include flex-center-vert();
+    flex-direction: row;
+}
+
+@mixin flex-center-vert-self {
+    @include flex-center-vert();
+    align-self: center;
+}
+
+@mixin flex-spaceBetweenCenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-spaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flex-center-spaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-spaceBetween-column-reverse {
+    @include flex-spaceBetween();
+    flex-direction: column-reverse;
+}
+
+/* ===== Usage ===== */
+/* .vertical-centered-element {
+    @include flex-center-vert;
+}
+.horizontally-centered-element {
+    flex-direction: column;
+    @include flex-center-vert;
+} */
+
+
+/* Grid */
+@mixin grid-center {
+    display: grid;
+    place-items: center;
+}
+
+/* PopUp transition */
+@mixin universalTransition {
+    transition: 200ms cubic-bezier(.08, .52, .52, 1);
+    backface-visibility: hidden; //wyelminowanie problemu drgań przy scale
+}

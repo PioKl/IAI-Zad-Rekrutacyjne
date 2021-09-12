@@ -1,0 +1,718 @@
+@import './App.scss';
+
+/* 
+   W celu nadania responsywności, w tym przypadku użyłem metody opartej na vh i vw, aby odwzorować projekt 1:1. Wadą rozwiązania jest brak możliwości przybliżenia strony (na smartfonie jest to możliwe), zaletą mniejsza ilość kodu. Drugą metodą może być zastosowanie techniki opartej na fluid typography, z użyciem calc i odpowiednich mixinów. Przykład takiej aplikacji z zastosowaniem drugiej metody znajduje się w aplikacji "Karaiby" (https://github.com/PioKl/Karaiby), gdzie stworzyłem dużą ilość mixinów do zastosowania responsywności.
+*/
+
+/* ==========================================================================================================================
+                                    Uniwersalne wielkości (często powtarzające się)
+=============================================================================================================================*/
+$borderRadiusUniversal: 5px;
+
+/* Wielkości Portrait */
+$borderPortrait: .1vh solid $borderColor;
+$boxShadowPortrait: 0 0 0 .1vh $borderColor;
+
+$consoleNameAndPriceFontSizePortrait: 1.6339vh;
+$consoleNameAndPriceLineHeightPortrait: 1.879vh;
+
+$consoleRamAndVariantFontSizePortrait: 1.2254vh;
+$consoleRamAndVariantLineHeightPortrait: 1.4085vh;
+
+$consoleUniversalFontSizePortrait: 1.3275vh;
+$consoleUniversalLineHeightPortrait: 1.5265vh;
+
+$consoleUniversalIconWidthPortrait: 1.532vh;
+$consoleUniversalIconHeightPortrait: 1.176vh;
+
+
+
+/* Wielkości Landscape */
+$borderLandscape: .07vw solid $borderColor;
+$boxShadowLandscape: 0 0 0 .07vw $borderColor;
+
+$consoleNameAndPriceFontSizeLandscape: 1.112vw;
+$consoleNameAndPriceLineHeightLandscape: 1.25vw;
+
+$consoleRamAndVariantFontSizeLandscape: .834vw;
+$consoleRamAndVariantLineHeightLandscape: .9723vw;
+
+$consoleUniversalFontSizeLandscape: .9028vw;
+$consoleUniversalLineHeightLandscape: 1.0417vw;
+
+$consoleUniversalIconWidthLandscape: 1.042vw;
+$consoleUniversalIconHeightLandscape: .799vw;
+
+
+
+/* ==========================================================================================================================
+                                    Wstępne Modyfikacje Inputa Typu Number
+=============================================================================================================================*/
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    width: 6.306vh; //dla firefoxa
+
+    @media (orientation: landscape) {
+        width: 100%;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    border: none;
+    text-align: center;
+    font-family: $fontArial;
+    font-weight: 400;
+    font-size: 1.4296vh;
+    line-height: 1.6444vh;
+    color: $textColor;
+
+    @media (orientation: landscape) {
+        font-size: .9723vw;
+        line-height: 1.112vw;
+    }
+}
+
+input[type=number]:focus {
+    outline: none;
+}
+
+/* ==========================================================================================================================
+                                                    Pop Up
+=============================================================================================================================*/
+
+.popUp-Box {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.popUp-container {
+    @include flex-spaceBetween-column-reverse();
+
+    @include absoluteCenter();
+
+    padding: 7.043vh 2.82vh;
+    background-color: #fff;
+
+    color: black;
+
+    box-shadow: 0px 1.41vh 3.522vh #0000003B;
+    border-radius: $borderRadiusUniversal;
+
+    @media (orientation: landscape) {
+        flex-direction: row;
+
+        padding: 2.014vw 1.32vw;
+
+        box-shadow: 0px .556vw 1.39vw #0000003B;
+    }
+
+
+
+
+    /* ==========================================================================================================================
+                                                            GALERIA
+    =============================================================================================================================*/
+
+    &__gallery {
+        @include flex-center-vert-self();
+
+        width: 37.649vh;
+        height: 20.43vh;
+        margin-top: 4.4356vh;
+
+        @media (orientation: landscape) {
+            width: 21.2501vw;
+            height: 11.528vw;
+            margin-top: 0;
+            margin-right: 2.1806vw;
+        }
+    }
+
+    &__img {
+        width: 28.273vh;
+        height: 20.43vh;
+
+        @media (orientation: landscape) {
+            width: 16.521vw;
+            height: 11.598vw;
+        }
+    }
+
+    &__arrowButton {
+        all: unset;
+        @include grid-center();
+        cursor: pointer;
+
+        width: 4.921vh;
+        height: 4.921vh;
+
+        @media (orientation: landscape) {
+            width: 2.778vw;
+            height: 2.778vw;
+        }
+
+        &:active {
+            transform: scale(1.5);
+        }
+    }
+
+    &__arrowIcon {
+        width: .771vh;
+        height: 1.325vh;
+
+        @media (orientation: landscape) {
+            width: .4341vw;
+            height: .7483vw;
+        }
+
+        &--right {
+            transform: rotate(180deg);
+        }
+    }
+
+    /* ==========================================================================================================================
+                                                            FORM
+                                            Poniżej także wszystko co się w nim znajduje
+    =============================================================================================================================*/
+
+    &__form {
+        align-self: center;
+        width: 100%;
+    }
+}
+
+/* ==========================================================================================================================
+                                      Style związane z ukazaniem nazwy konsoli, zamknięciem i ceną
+=============================================================================================================================*/
+
+
+.consoleHead-container {
+    @include flex-spaceBetween();
+
+    &__name {
+        width: 29.303vh;
+
+        font-family: $fontArial;
+        font-weight: bold;
+        font-size: $consoleNameAndPriceFontSizePortrait;
+        line-height: $consoleNameAndPriceLineHeightPortrait;
+        color: $textColor;
+
+        @media (orientation: landscape) {
+            width: 19.931vw;
+
+            font-size: $consoleNameAndPriceFontSizeLandscape;
+            line-height: $consoleNameAndPriceLineHeightLandscape;
+        }
+    }
+
+    &__closeButton {
+        all: unset;
+        align-self: flex-start;
+        cursor: pointer;
+
+        &:active {
+            transform: scale(.9);
+        }
+
+    }
+
+    &__closeIcon {
+        @include grid-center();
+
+        width: 1.547vh;
+        height: 1.547vh;
+
+        @media (orientation: landscape) {
+            width: 1.063vw;
+            height: 1.063vw;
+        }
+    }
+
+}
+
+.consolePricing {
+    display: block;
+
+    margin-top: .715vh;
+
+    font-family: $fontArial;
+    font-weight: bold;
+    font-size: 1.6339vh;
+    line-height: 1.879vh;
+    color: $blue;
+
+    @media (orientation: landscape) {
+        margin-top: .487vw;
+        font-size: 1.112vw;
+        line-height: 1.25vw;
+    }
+}
+
+/* ==========================================================================================================================
+                                        Style związane z pamięcia ram
+=============================================================================================================================*/
+
+.consoleRam-container {
+    @include flex-column();
+
+    &__sizeText {
+        margin-top: 1.3275vh;
+
+        font-family: $fontArial;
+        font-weight: normal;
+        font-size: $consoleUniversalFontSizePortrait;
+        line-height: $consoleUniversalLineHeightPortrait;
+        color: $textColor;
+
+        @media (orientation: landscape) {
+            margin-top: .9028vw;
+            font-size: $consoleUniversalFontSizeLandscape;
+            line-height: $consoleUniversalLineHeightLandscape;
+        }
+    }
+
+    &__ramList {
+        @include flex-spaceBetween();
+        width: 33.386vh;
+        margin-top: .8169vh;
+
+        font-family: $fontArial;
+        font-weight: normal;
+        font-size: $consoleRamAndVariantFontSizePortrait;
+        line-height: $consoleRamAndVariantLineHeightPortrait;
+        color: $textColor;
+
+        @media (orientation: landscape) {
+            width: 22.71vw;
+            margin-top: .556vw;
+
+            font-size: $consoleRamAndVariantFontSizeLandscape;
+            line-height: $consoleRamAndVariantLineHeightLandscape;
+        }
+    }
+
+    &__ramButton {
+        all: unset;
+        cursor: pointer;
+
+        width: 10.11vh;
+        height: 3.574vh;
+
+        text-align: center;
+
+        border: $borderPortrait;
+        border-radius: $borderRadiusUniversal;
+
+        @media (orientation: landscape) {
+            width: 6.875vw;
+            height: 2.431vw;
+
+            border: $borderLandscape;
+        }
+
+        &:hover,
+        &:focus,
+        &:disabled {
+            margin: -.1vh; //w celu pozbycia się błędu, "poruszających" przycisków
+            font-weight: bold;
+
+            border: .205vh solid $blue;
+
+            backface-visibility: hidden;
+
+            @media (orientation: landscape) {
+                margin: -.07vw;
+                border: .139vw solid $blue;
+            }
+        }
+    }
+}
+
+
+/* ==========================================================================================================================
+                                    Style związane z wyborem wariantu koloru
+=============================================================================================================================*/
+
+.consoleVariants {
+    margin-top: 1.94014vh;
+
+    font-family: $fontArial;
+    font-weight: 400;
+    font-size: $consoleUniversalFontSizePortrait;
+    line-height: $consoleUniversalLineHeightPortrait;
+
+    @media (orientation: landscape) {
+        margin-top: 1.32vw;
+
+        font-size: $consoleUniversalFontSizeLandscape;
+        line-height: $consoleUniversalLineHeightLandscape;
+    }
+}
+
+.selectVariant {
+    position: relative;
+    cursor: pointer;
+
+    font-size: $consoleRamAndVariantFontSizePortrait;
+    line-height: $consoleRamAndVariantLineHeightPortrait;
+
+    @media (orientation: landscape) {
+        font-size: $consoleRamAndVariantFontSizeLandscape;
+        line-height: $consoleRamAndVariantLineHeightLandscape;
+    }
+
+    &__selectedVariant {
+        @include flex-center-spaceBetween();
+
+        width: 100%;
+        height: 3.574vh;
+        margin-top: .8169vh;
+        padding-left: 1.3275vh;
+
+        border: $borderPortrait;
+        border-radius: $borderRadiusUniversal;
+
+        @media (orientation: landscape) {
+            height: 2.431vw;
+            margin-top: .556vw;
+            padding-left: .9028vw;
+
+            border: $borderLandscape;
+        }
+
+
+
+        &:after {
+            content: '';
+            background: url('../icons/dropDownIcon.svg');
+            background-size: $consoleUniversalIconWidthPortrait $consoleUniversalIconHeightPortrait;
+            width: $consoleUniversalIconWidthPortrait;
+            height: $consoleUniversalIconHeightPortrait;
+            margin-right: 1.574vh;
+
+            @media (orientation: landscape) {
+                background-size: $consoleUniversalIconWidthLandscape $consoleUniversalIconHeightLandscape;
+                width: $consoleUniversalIconWidthLandscape;
+                height: $consoleUniversalIconHeightLandscape;
+                margin-right: 1.07081vw;
+            }
+        }
+    }
+
+    &__dropDownList {
+        position: absolute;
+        top: 100%;
+        z-index: 1;
+
+        width: 100%;
+        margin-top: 1.77vh;
+        background-color: #fff;
+
+        box-shadow: $boxShadowPortrait;
+        border-radius: $borderRadiusUniversal;
+        overflow-y: auto; // żeby border zrobiony z box-shadow równo się ustawił z border radius
+
+        @media (orientation: landscape) {
+            margin-top: .75vw;
+
+            box-shadow: $boxShadowLandscape;
+        }
+
+    }
+
+    &__item {
+        @include flex-center-vert();
+
+        height: 3.574vh;
+        padding-left: 1.3275vh;
+
+        @include universalTransition();
+
+        @media (orientation: landscape) {
+            height: 2.431vw;
+            padding-left: .9028vw;
+
+        }
+
+        &:hover {
+            background-color: $blue;
+            color: white;
+        }
+    }
+}
+
+/* ==========================================================================================================================
+                                         Style związane z dostępnością konsoli
+=============================================================================================================================*/
+
+.consoleAvailability-container {
+    display: flex;
+
+    height: 3.166vh;
+    margin-top: 1.532vh;
+
+    font-family: $fontArial;
+    font-weight: normal;
+    font-size: $consoleUniversalFontSizePortrait;
+    line-height: $consoleUniversalLineHeightPortrait;
+
+    @media (orientation: landscape) {
+        height: 2.153vw;
+        margin-top: 1.042vw;
+
+        font-size: $consoleUniversalFontSizeLandscape;
+        line-height: $consoleUniversalLineHeightLandscape;
+    }
+
+    &__availability {
+        @include flex-center-vert();
+
+        line-height: 1.5265vh;
+
+        @media (orientation: landscape) {
+            line-height: 1.0382vw;
+        }
+
+        &--available {
+            &:before {
+                content: '';
+                background: url('../icons/okIcon.svg');
+                background-size: $consoleUniversalIconWidthPortrait $consoleUniversalIconHeightPortrait;
+                width: $consoleUniversalIconWidthPortrait;
+                height: $consoleUniversalIconHeightPortrait;
+                margin-right: 1.1232vh;
+
+                @media (orientation: landscape) {
+                    background-size: $consoleUniversalIconWidthLandscape $consoleUniversalIconHeightLandscape;
+                    width: $consoleUniversalIconWidthLandscape;
+                    height: $consoleUniversalIconHeightLandscape;
+                    margin-right: .9723vw;
+                }
+            }
+        }
+
+        &--notAvailable {
+            &:before {
+                content: '';
+                background: url('../icons/closeIcon.svg');
+                filter: invert(16%) sepia(100%) saturate(5172%) hue-rotate(356deg) brightness(105%) contrast(121%);
+                background-size: $consoleUniversalIconWidthPortrait $consoleUniversalIconHeightPortrait;
+                width: $consoleUniversalIconWidthPortrait;
+                height: $consoleUniversalIconHeightPortrait;
+                margin-right: 1.1232vh;
+
+                @media (orientation: landscape) {
+                    background-size: $consoleUniversalIconWidthLandscape $consoleUniversalIconHeightLandscape;
+                    width: $consoleUniversalIconWidthLandscape;
+                    height: $consoleUniversalIconHeightLandscape;
+                    margin-right: .9723vw;
+                }
+            }
+        }
+    }
+
+    &__delivery {
+        @include flex-center-vert-row();
+
+        margin-left: 2.553vh;
+
+        @media (orientation: landscape) {
+            margin-left: 1.7361vw;
+        }
+
+        &::before {
+            display: block;
+            content: '';
+            background-image: url('../icons/deliveryTimeIcon.svg');
+            background-repeat: no-repeat;
+            background-size: 1.532vh 1.625vh;
+            width: 1.532vh;
+            height: 1.625vh;
+            margin-right: 1.2253vh;
+
+            @media (orientation: landscape) {
+                background-size: 1.042vw 1.105vw;
+                width: 1.042vw;
+                height: 1.105vw;
+                margin-right: .8334vw;
+            }
+        }
+    }
+
+    &__deliveryInformation {
+        @include flex-column();
+    }
+
+    &__deliveryTimeInfo {
+        color: $blue;
+
+        @include universalTransition();
+
+        &:hover {
+            color: darken($blue, 20)
+        }
+    }
+}
+
+
+/* ==========================================================================================================================
+                Style związane z zamówieniem konsoli, czyli dodaniem do koszyka i wybraniem liczby konsol
+=============================================================================================================================*/
+
+.consoleOrder-container {
+    @include flex-spaceBetweenCenter();
+
+    margin-top: 2.254vh;
+
+    @media (orientation: landscape) {
+        margin-top: 1.4583vw;
+    }
+
+    &__addToBasketButton {
+        all: unset;
+        cursor: pointer;
+
+        align-self: flex-start;
+
+        width: 22.26vh;
+        height: 5.11vh;
+        background-color: $blue;
+
+        color: white;
+        text-align: center;
+        font-family: $fontArial;
+        font-weight: 400;
+        font-size: 1.5317vh;
+        line-height: 1.761vh;
+
+        border-radius: $borderRadiusUniversal;
+        @include universalTransition();
+
+        @media (orientation: landscape) {
+            width: 15.139vw;
+            height: 3.473vw;
+            margin-left: .8334vw;
+
+            font-size: 1.042vw;
+            line-height: 1.1806vw;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: darken($blue, 10);
+        }
+
+        &:active {
+            transform: scale(.95);
+        }
+
+        &:disabled {
+            cursor: no-drop;
+            background-color: $disableColor;
+
+            &:hover {
+                font-weight: 400;
+            }
+
+            &:active {
+                transform: initial;
+            }
+        }
+    }
+}
+
+/* ==========================================================================================================================
+                                     Style związane ze stanem magazynowym konsol
+=============================================================================================================================*/
+.consoleStock-container {
+    @include flex-column();
+
+    &__ramInStock {
+        margin-top: 1.77vh;
+
+        font-family: $fontArial;
+        font-weight: 400;
+        font-size: $consoleUniversalFontSizePortrait;
+        line-height: $consoleUniversalLineHeightPortrait;
+        color: $textColor;
+
+        @media (orientation: landscape) {
+            margin-top: .75vw;
+            font-size: $consoleUniversalFontSizeLandscape;
+            line-height: $consoleUniversalLineHeightLandscape;
+        }
+
+        &--hidden {
+            visibility: hidden;
+        }
+    }
+}
+
+/* ==========================================================================================================================
+                                     Style związane z wyborem ilości konsol
+=============================================================================================================================*/
+
+.consoleQuantity-container {
+    display: flex;
+    width: 14.12vh;
+    height: 5.11vh;
+
+    border: $borderPortrait;
+    border-radius: $borderRadiusUniversal;
+
+    @media (orientation: landscape) {
+        width: 9.723vw;
+        height: 3.473vw;
+
+        border: $borderLandscape;
+    }
+
+    &--disable {
+        pointer-events: none;
+    }
+
+    &__quantityButton {
+        all: unset;
+        cursor: pointer;
+
+        width: 33%;
+        height: auto;
+
+        text-align: center;
+        font-family: $fontArial;
+        font-weight: 700;
+        font-size: 1.73592vh;
+        line-height: 1.9965vh;
+        color: $textColor;
+
+        @media (orientation: landscape) {
+            font-size: 1.1806vw;
+            line-height: 1.3889vw;
+        }
+
+        &:disabled {
+            color: $disableColor;
+            cursor: no-drop;
+            pointer-events: none;
+            font-weight: 400;
+
+        }
+    }
+
+    &__quanitityInput {
+        all: unset;
+    }
+}

@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import ShopBasketContextProvider from './contexts/ShopBasketContext';
 
 ReactDOM.render(
   <React.StrictMode>
+    <ShopBasketContextProvider>
     <App />
+    </ShopBasketContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,87 @@
+@import './App.scss';
+
+/* =====================================================================================================================
+                                        Style dla card
+=========================================================================================================================*/
+.card {
+    @include absoluteCenter();
+
+    @include flex-column();
+
+    width: 28.273vh;
+    gap: 1.77vh;
+
+    @media (orientation: landscape) {
+        width: 16.521vw;
+        gap: .695vw;
+    }
+
+    &__img {
+        display: block;
+        max-width: 100%;
+    }
+
+    &__consoleName {
+        text-align: center;
+        font-family: $fontArial;
+        font-weight: bold;
+        font-size: 1.6339vh;
+        line-height: 1.879vh;
+        color: $textColor;
+
+        @media (orientation: landscape) {
+            font-size: 1.112vw;
+            line-height: 1.25vw;
+        }
+
+    }
+
+    &__consoleButton {
+        all: unset;
+        cursor: pointer;
+
+        height: 5.11vh;
+        background-color: $blue;
+
+        text-align: center;
+        font-family: $fontArial;
+        font-weight: 400;
+        font-size: 1.5317vh;
+        line-height: 1.761vh;
+        color: white;
+
+        border-radius: 5px;
+        @include universalTransition();
+
+        @media (orientation: landscape) {
+            height: 3.473vw;
+
+            font-size: 1.042vw;
+            line-height: 1.1806vw;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: darken($blue, 10);
+        }
+
+        &:active {
+            transform: scale(.95);
+        }
+    }
+}
+
+/* =====================================================================================================================
+                                        Style dla loading
+=========================================================================================================================*/
+.loading {
+    @include absoluteCenter();
+
+    font-family: $fontArial;
+    font-size: 1.3vh;
+    color: $textColor;
+
+    @media (orientation: landscape) {
+        font-size: 1.112vw;
+    }
+}
