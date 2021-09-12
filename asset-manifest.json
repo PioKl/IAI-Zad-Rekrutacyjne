@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/IAI-Zad-Rekrutacyjne/static/css/main.ccf560ae.chunk.css",
-    "main.js": "/IAI-Zad-Rekrutacyjne/static/js/main.7fa637db.chunk.js",
-    "main.js.map": "/IAI-Zad-Rekrutacyjne/static/js/main.7fa637db.chunk.js.map",
+    "main.js": "/IAI-Zad-Rekrutacyjne/static/js/main.13782dfe.chunk.js",
+    "main.js.map": "/IAI-Zad-Rekrutacyjne/static/js/main.13782dfe.chunk.js.map",
     "runtime-main.js": "/IAI-Zad-Rekrutacyjne/static/js/runtime-main.e84638f0.js",
     "runtime-main.js.map": "/IAI-Zad-Rekrutacyjne/static/js/runtime-main.e84638f0.js.map",
     "static/js/2.a0c1fa60.chunk.js": "/IAI-Zad-Rekrutacyjne/static/js/2.a0c1fa60.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.e84638f0.js",
     "static/js/2.a0c1fa60.chunk.js",
     "static/css/main.ccf560ae.chunk.css",
-    "static/js/main.7fa637db.chunk.js"
+    "static/js/main.13782dfe.chunk.js"
   ]
 }
