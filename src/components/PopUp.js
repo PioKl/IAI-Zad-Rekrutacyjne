@@ -169,7 +169,7 @@ export default function PopUp({ jsonData, openPopUp, setOpenPopUp }) {
                                     <div className="consoleAvailability-container__delivery">
                                         <div className={`consoleAvailability-container__deliveryInformation`}>
                                             <span className="consoleAvailability-container__whenSending">Możemy wysłać już dzisiaj!</span>
-                                            <a href="/#" className="consoleAvailability-container__deliveryTimeInfo">Sprawdź czasy i koszy wysyłki</a>
+                                            <a href="#" className="consoleAvailability-container__deliveryTimeInfo">Sprawdź czasy i koszy wysyłki</a>
                                         </div>
                                     </div>
                                 }
