@@ -98,6 +98,10 @@
             margin-left: .4861vw;
         }
 
+        &:active {
+            transform: scale(1.2);
+        }
+
     }
 
     &__goFurtherIcon {
